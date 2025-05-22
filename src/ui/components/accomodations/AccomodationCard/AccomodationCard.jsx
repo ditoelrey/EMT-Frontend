@@ -11,6 +11,8 @@ const AccomodationCard = ({accommodation, onEdit, onDelete}) => {
     const navigate = useNavigate();
     const [editAccommodationDialogOpen, setEditAccommodationDialogOpen] = useState(false);
     const [deleteAccommodationDialogOpen, setDeleteAccommodationDialogOpen] = useState(false);
+    const [isRented, setIsRented] = useState(accommodation.rented);
+
 
     return (
         <>
@@ -25,8 +27,25 @@ const AccomodationCard = ({accommodation, onEdit, onDelete}) => {
                                 sx={{textAlign: "right", fontSize: "1.25rem"}}>{accommodation.numRooms} rooms</Typography>
                     <Typography variant="body2" sx={{textAlign: "right"}}>{accommodation.category}
                         </Typography>
+                    <Typography
+                        variant="h6"
+                        sx={{
+                            textAlign: "right",
+                            color: isRented ? "green" : "red",
+                            fontWeight: "bold"
+                        }}
+                    >
+                        {isRented.toString()}
+                    </Typography>
                 </CardContent>
                 <CardActions sx={{justifyContent: "space-between"}}>
+                    <Button
+                        size="small"
+                        color={isRented ? "success" : "primary"}
+                        onClick={() => setIsRented(prev => !prev)}
+                    >
+                        {isRented ? "Unrent" : "Rent"}
+                    </Button>
                     <Button
                         size="small"
                         color="info"
@@ -56,6 +75,7 @@ const AccomodationCard = ({accommodation, onEdit, onDelete}) => {
                     </Box>
                 </CardActions>
             </Card>
+
 
             <EditAccomodationDialog
                 open={editAccommodationDialogOpen}

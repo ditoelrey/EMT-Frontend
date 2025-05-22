@@ -4,10 +4,14 @@ import AccomodationsGrid from "../../components/accomodations/AccomodationsGrid/
 import useAccomodations from "../../../hooks/useAccomodations.js";
 import "./AccomodationsPage.css";
 import AddAcomodationDialog from "../../components/accomodations/AddAccomodationDialog/AddAcomodationDialog.jsx";
+import RentedAccommodationPage from "../RentedAccommodationPage/RentedAccommodationPage.jsx";
+import {useNavigate} from "react-router";
 
 const AccomodationsPage = () => {
     const {accommodations, loading, onAdd, onEdit, onDelete} = useAccomodations();
     const [addAccomodationDialogOpen, setAddAccomodationDialogOpen] = useState(false);
+
+    const navigate = useNavigate();
 
     return (
         <>
@@ -23,6 +27,12 @@ const AccomodationsPage = () => {
                             <Button variant="contained" color="primary" onClick={() => setAddAccomodationDialogOpen(true)}>
                                 Add Accomodation
                             </Button>
+
+                        </Box>
+                        <Box sx={{display: "flex", justifyContent: "flex-start", mb: 2}}>
+                        <Button variant="contained" color="primary" onClick={() => navigate("/rentedaccommodations")}>
+                            Rented Accommodations
+                        </Button>
                         </Box>
                         <AccomodationsGrid accommodations={accommodations} onEdit={onEdit} onDelete={onDelete}/>
                     </>
@@ -33,6 +43,7 @@ const AccomodationsPage = () => {
                 onClose={() => setAddAccomodationDialogOpen(false)}
                 onAdd={onAdd}
             />
+
         </>
     );
 };

@@ -9,6 +9,8 @@ const pages = [
     {"path": "/accommodations", "name": "accommodations"},
     {"path": "/hosts", "name": "hosts"},
     {"path": "/countries", "name": "countries"},
+    // {"path": "/rentedaccommodations", "name": "rented"},
+
 ];
 
 const Header = () => {

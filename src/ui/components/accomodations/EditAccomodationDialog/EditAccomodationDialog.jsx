@@ -21,6 +21,8 @@ const EditAccomodationDialog = ({open, onClose, accommodation, onEdit}) => {
         "numRooms": accommodation.numRooms,
         "hostId": accommodation?.hostId ?? "0",
         "category": accommodation.category,
+        "rented": accommodation.rented,
+
     });
 
     const {hosts} = useHosts();

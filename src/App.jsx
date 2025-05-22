@@ -6,6 +6,7 @@ import HomePage from "./ui/pages/HomePage/HomePage.jsx";
 import ProductDetails from "./ui/components/accomodations/ProductDetails/ProductDetails.jsx";
 import CountriesPage from "./ui/pages/CountriesPage/CountriesPage.jsx";
 import HostsPage from "./ui/pages/HostsPage/HostsPage.jsx";
+import RentedAccommodationPage from "./ui/pages/RentedAccommodationPage/RentedAccommodationPage.jsx";
 
 const App = () => {
     return (
@@ -16,6 +17,7 @@ const App = () => {
                     <Route path="accommodations" element={<AccomodationsPage/>}/>
                     <Route path="countries" element={<CountriesPage/>}/>
                     <Route path="hosts" element={<HostsPage/>}/>
+                    <Route path="rentedaccommodations" element={<RentedAccommodationPage/>}/>
 
                 </Route>
             </Routes>
